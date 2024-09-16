@@ -3,7 +3,7 @@ const app = express();
 const main = require("./connection/connectToDb");
 const user = require("./model/user");
 const searchFriend = require("./Routes/searchFriend");
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 7000;
 const cors = require('cors');
 app.use(cors());
 app.use(express.json());
@@ -21,6 +21,9 @@ main(uri).then((res)=>{
 
 //routes
 app.use('/users',searchFriend);
+app.get('/',(req,res)=>{
+    res.send("<h1>congratulation<h1>")
+});
 // app.get("/",async(req,res)=>{
 //     const user1 = new user({
 //         Name:"rahul",
